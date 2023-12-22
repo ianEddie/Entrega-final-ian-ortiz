@@ -5,7 +5,7 @@ import Image from 'next/image'
 
 export default async function ProductDetail({ slug }) {
   // Rest api call
-  const response = await fetch(`http://${process.env.VERCEL_URL}/api/detail/${slug}`, {
+  const response = await fetch(`https://${process.env.VERCEL_URL}/api/detail/${slug}`, {
     cache: 'no-store'
   })
   const product = await response.json()

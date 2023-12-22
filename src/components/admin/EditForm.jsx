@@ -2,7 +2,7 @@ import CreateItem from './CreateItem'
 
 export default async function EditForm({ slug }) {
   const response = await fetch(
-    `http://${process.env.VERCEL_URL}/api/detail/${slug}`,
+    `https://${process.env.VERCEL_URL}/api/detail/${slug}`,
     {
       cache: 'no-store'
     }

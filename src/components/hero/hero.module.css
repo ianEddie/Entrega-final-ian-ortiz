@@ -1,0 +1,8 @@
+.hero {
+  background-image: url('../../assets/product-bg.jpg');
+  background-position: center center;
+  background-size: cover;
+}
+.filter {
+  @apply w-full h-full z-10 absolute top-0 right-0 bg-gradient-to-b from-black from-0% to-neutral-950/30 to-90% backdrop-blur-[3px] backdrop-brightness-[.5];
+}

@@ -1,0 +1,10 @@
+.section {
+    background-image: url('../../../public/background.jpg');
+    background-size: cover;
+    background-position: center center;
+    @apply  min-h-screen w-full pt-12 flex flex-col justify-center relative
+}
+
+.filter {
+    @apply absolute w-full h-full top-0 right-0 bg-gradient-to-b from-neutral-900 from-0% to-transparent to-70% backdrop-blur-[2px] backdrop-brightness-[.5]
+}

@@ -1,0 +1,46 @@
+/* Desktop */
+.link {
+  @apply px-2 py-1 rounded-2xl transition-all duration-500;
+}
+.link:hover {
+  @apply bg-neutral-100 text-red-900;
+}
+.label,
+.input,
+.div {
+  @apply hidden;
+}
+/* Phone */
+@media screen and (max-width: 600px) {
+  .header {
+    @apply flex justify-between;
+  }
+  .div {
+    @apply flex justify-center items-center pr-2;
+  }
+  .button {
+    @apply w-10 z-40 transition-all duration-300 text-transparent h-full;
+  }
+  .input:not(:checked) ~ .div > .button {
+    background-image: url('../../assets/icons/open.svg');
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+  .input:checked ~ .div > .button {
+    background-image: url('../../assets/icons/close.svg');
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+  .label {
+    @apply flex w-10 h-full absolute z-50 top-0 right-4 cursor-pointer;
+  }
+  .nav {
+    clip-path: circle(0 at center);
+    transition: clip-path 0.7s ease-in-out;
+    @apply absolute top-0 right-0 w-full h-screen flex flex-col items-center justify-center gap-y-10 z-40;
+  }
+
+  .input:checked + .nav {
+    clip-path: circle(100% at center);
+  }
+}

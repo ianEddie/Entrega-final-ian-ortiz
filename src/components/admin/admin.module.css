@@ -1,0 +1,22 @@
+.container {
+  @apply flex flex-col items-center justify-center gap-y-3 pb-5 relative;
+}
+
+.label {
+  @apply text-neutral-300 underline underline-offset-8 decoration-1 decoration-amber-500;
+}
+
+.input {
+  @apply rounded-full bg-neutral-100/20 text-neutral-100 text-center p-1 text-sm;
+}
+
+.main {
+  background-image: url('https://i.postimg.cc/XYsM1SSw/admin-bg.webp');
+  background-size: cover;
+  background-position: center center;
+  @apply flex justify-center items-center h-screen pt-10;
+}
+
+.filter {
+  @apply z-10 absolute w-full h-full top-0 right-0 bg-gradient-to-b from-neutral-900 from-0% to-transparent to-70% backdrop-blur-[2px] backdrop-brightness-[.5];
+}

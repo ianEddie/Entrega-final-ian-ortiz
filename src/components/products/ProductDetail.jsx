@@ -4,10 +4,13 @@ import ProductDetailButton from './AddToCartButton'
 import Image from 'next/image'
 
 export default async function ProductDetail({ slug }) {
-  const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || ''
-  const response = await fetch(`${baseUrl}/api/detail/${slug}`, {
-    cache: 'no-store'
-  })
+  const baseUrl = (process.env.NEXT_PUBLIC_API_BASE_URL || '').replace(/\/$/, '');
+  
+  const apiUrl = new URL('/api/products/' + slug, baseUrl);
+  
+  const response = await fetch(apiUrl.toString(), {
+   cache: 'no-store'
+ });
   const product = await response.json()
   // Return
   return (

@@ -1,12 +1,11 @@
 import CreateItem from './CreateItem'
 
 export default async function EditForm({ slug }) {
-  const response = await fetch(
-    `https://${process.env.VERCEL_URL}/detail/${slug}`,
-    {
-      cache: 'no-store'
-    }
-  )
+  const baseUrl =
+    process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3000'
+  const response = await fetch(`${baseUrl}/api/detail/${slug}`, {
+    cache: 'no-store'
+  })
   // localhost:3000
   // ${process.env.VERCEL_URL}
   const product = await response.json()

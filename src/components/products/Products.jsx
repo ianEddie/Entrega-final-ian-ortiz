@@ -1,12 +1,11 @@
 import ProductItem from './ProductItem'
 
 export default async function Products({ category }) {
-  const response = await fetch(
-    `https://${process.env.VERCEL_URL}/products/${category}`,
-    {
-      cache: 'no-store'
-    }
-  )
+  const baseUrl =
+    process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3000'
+  const response = await fetch(`${baseUrl}/api/products/${category}`, {
+    cache: 'no-store'
+  })
   // ${process.env.VERCEL_URL}
   const data = await response.json()
   return (

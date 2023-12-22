@@ -2,7 +2,7 @@ import ProductItem from './ProductItem'
 
 export default async function Products({ category }) {
   const response = await fetch(
-    `https://${process.env.VERCEL_URL}/api/products/${category}`,
+    `https://${process.env.VERCEL_URL}/products/${category}`,
     {
       cache: 'no-store'
     }

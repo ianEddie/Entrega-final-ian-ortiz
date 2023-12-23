@@ -1,14 +1,14 @@
 import CreateItem from './CreateItem'
 
 export default async function EditForm({ slug }) {
-  const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || ''
+  const baseUrl =
+    process.env.NODE_ENV === 'production'
+      ? NEXT_PUBLIC_API_BASE_URL
+      : 'http://localhost:3000'
 
-  const apiUrl = new URL(`/products/${slug}`, baseUrl)
-
-  const response = await fetch(apiUrl.toString(), {
+  const response = await fetch(`${baseUrl}/api/detail/${slug}`, {
     cache: 'no-store'
   })
-
-  const data = await response.json()
+  const product = await response.json()
   return <CreateItem title='Edit your product' initialValues={product} />
 }

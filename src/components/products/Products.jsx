@@ -1,12 +1,12 @@
 import ProductItem from './ProductItem'
 
 export default async function Products({ category }) {
+  const baseUrl =
+    process.env.NODE_ENV === 'production'
+      ? NEXT_PUBLIC_API_BASE_URL
+      : 'http://localhost:3000'
 
-  const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || ''
-
-  const apiUrl = new URL(`/products/${category}`, baseUrl)
-
-  const response = await fetch(apiUrl.toString(), {
+  const response = await fetch(`${baseUrl}/api/products/${category}`, {
     cache: 'no-store'
   })
 

@@ -1,7 +1,8 @@
 import ProductItem from './ProductItem'
 
 export default async function Products({ category }) {
-  const baseUrl = NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3000'
+  const baseUrl =
+    process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3000'
 
   const response = await fetch(`${baseUrl}/api/products/${category}`, {
     cache: 'no-store'

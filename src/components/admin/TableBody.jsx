@@ -6,11 +6,13 @@ import Loader from '../icons/Loader'
 export default function TableBody() {
   const [products, setProducts] = useState([])
   const [loading, setLoading] = useState(true)
+  const baseUrl =
+    process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3000'
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:3000/api/products/all', {
+        const response = await fetch(`${baseUrl}/api/products/all`, {
           cache: 'no-store'
         })
         const productsData = await response.json()

@@ -6,8 +6,7 @@ import Loader from '../icons/Loader'
 export default function TableBody() {
   const [products, setProducts] = useState([])
   const [loading, setLoading] = useState(true)
-  const baseUrl =
-    process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3000'
+  const baseUrl = process.env.API_ENDPOINT || 'http://localhost:3000'
 
   useEffect(() => {
     const fetchData = async () => {
@@ -19,7 +18,7 @@ export default function TableBody() {
         setProducts(productsData)
         setLoading(false)
       } catch (error) {
-        console.error('Error al obtener la lista de productos', error)
+        console.error('Error getting product list', error)
         setLoading(false)
       }
     }
